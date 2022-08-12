@@ -1,3 +1,10 @@
+//State
+//Dispatch action
+//Reducer
+//Store 
+
+
+//Action Type
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
 const ADD_USER = "ADD_USER;
@@ -25,7 +32,28 @@ const decrementCounter = () =>{
 }
 const addUser = () =>{
     return {
-        type : ADD_USER;
+        type : ADD_USER,
         payload : {name : 'Ahmed'}
     }
+}
+
+//Reducer - is a pure function - build logic for action - used for update the state based on action 
+
+const counterReducer = (state = initialCountState , action) =>{
+    switch (action.type) {
+        case INCREMENT:
+            return{
+                ...state,
+                count : state.count+1
+            }
+        case DECREMENT:
+            return{
+                ...state,
+                count : state.count-1
+            }
+    
+        default:
+            state;
+    }
+
 }
