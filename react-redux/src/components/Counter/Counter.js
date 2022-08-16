@@ -21,7 +21,11 @@ const Counter = () => {
             <h2>REACT-REDUX-COUNTER</h2>
             <h1>{count}</h1>
             <button onClick={handleIncrement}>INCREMENT</button>
-            <button onClick={handleDecrement}>DECREMENT</button>
+             <br />
+            {
+                count > 0 && <button onClick={ handleDecrement}>DECREMENT</button>  
+            }
+            <br />
             <button onClick={handleReset}>RESET</button>
         </div>
     );
