@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addBook } from "../features/books/bookSlice";
 
 const AddBook = () => {
+  
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const books = useSelector(state => state.bookReducer.books)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleAdd = (e) => {
     e.preventDefault();
     const book = {
-      id: 3,
+      id: books.length+1,
       title,
       author,
     };
@@ -20,29 +22,31 @@ const AddBook = () => {
   };
 
   return (
+    <div className="main-wrapper">
     <div>
-      <h4>Add New Book</h4>
-      <form onSubmit={handleAdd}>
-        <label htmlFor="">Book Title</label>
-        <br />
-        <input
-          onBlur={(e) => setTitle(e.target.value)}
-          type="text"
-          name=""
-          id=""
-        />
-        <br />
-        <label htmlFor="">Author</label>
-        <br />
-        <input
-          onBlur={(e) => setAuthor(e.target.value)}
-          type="text"
-          name=""
-          id=""
-        />
-        <br />
-        <input type="submit" value="Add" />
-      </form>
+    <h2>Add New Book</h2>
+    <form onSubmit={handleAdd}>
+      <label htmlFor="">Book Title</label>
+      <br />
+      <input
+        onBlur={(e) => setTitle(e.target.value)}
+        type="text"
+        name=""
+        id=""
+      />
+      <br />
+      <label htmlFor="">Author</label>
+      <br />
+      <input
+        onBlur={(e) => setAuthor(e.target.value)}
+        type="text"
+        name=""
+        id=""
+      />
+      <br />
+      <input type="submit" value="Add" />
+    </form>
+  </div>
     </div>
   );
 };

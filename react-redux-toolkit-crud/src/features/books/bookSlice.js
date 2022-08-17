@@ -2,8 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialBooks = {
     books: [
-      { id: 1, title: "Bangladesh", author: "A Islam" },
-      { id: 2, title: "Bangladeshi", author: "B Islam" },
+      { id: 1, title: "The Hollow Kind", author: "Andy Davidson" },
+      { id: 2, title: "Shutter", author: "Ramona Emerson" },
+      { id: 3, title: "The Lost Ticket", author: "Freya Sampson" },
+      { id: 4, title: "By the Book", author: "asmine Guillory" },
+      { id: 5, title: "Mad about You", author: "Mhairi McFarlane" },
     ],
   };
 
