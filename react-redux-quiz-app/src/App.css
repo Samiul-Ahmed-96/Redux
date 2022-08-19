@@ -1,38 +1,106 @@
-.App {
+body {
+  background: rgb(255, 255, 255);
+}
+
+.home {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.home h2 {
+  font-size: 42px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.common-btn {
+  text-decoration: none;
+  background: #6c63ff;
+  color: #fff;
+  border-top: 3px solid #2f2e41;
+  padding: 15px 35px;
+  border-radius: 30px;
+  border-bottom: 3px solid #2f2e41;
+  transition: .3s;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-right: 20px;
+}
+
+.common-btn:hover {
+  background: #2f2e41;
+  color: #fff;
+  border-top: 3px solid #6c63ff;
+  border-bottom: 3px solid #6c63ff;
+}
+
+.home img {
+  width: 100%;
+}
+
+.quiz-main {
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.option {
+  background: #e6e6e6;
+  padding: 10px;
+  width: 250px;
+  max-width: 100%;
+  border-radius: 30px;
+  text-align: center;
+  border-top: 2px solid #6c63ff;
+  cursor: pointer;
+}
+
+.active-option {
+  background: #2f2e41;
+  padding: 10px;
+  width: 250px;
+  max-width: 100%;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  border-top: 2px solid #6c63ff;
+  cursor: pointer;
+
+}
+.n-of-ques {
+  text-align: unset;
+  height: 80px;
+  width: 80px;
+  border: 2px solid #6c63ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.n-of-ques h2 {
+  display: inline;
+  color: #6c63ff;
+  font-size: 20px;
+  margin: 0;
+}
+.count-ques {
+  display: flex;
+  justify-content: end;
 }
