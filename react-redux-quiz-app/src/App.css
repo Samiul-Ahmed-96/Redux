@@ -104,3 +104,19 @@ body {
   display: flex;
   justify-content: end;
 }
+.modal-body img {
+  width: 100%;
+}
+
+.modal-body {
+  text-align: center;
+  padding: 30px;
+  border: none;
+}
+.modal-content {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.modal-body h3{
+  margin-top: 20px;
+}

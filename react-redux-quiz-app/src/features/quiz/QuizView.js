@@ -1,20 +1,23 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import quizImg from "../../image/ques.svg";
+import Result from "../../pages/Result/Result";
+import { getResult, getSelectedAns } from "./quizSlice";
 
 const QuizView = () => {
+  //States
   const quizes = useSelector((state) => state.quizReducer.quizData);
-  const answerData = useSelector((state) => state.quizReducer.answer);
+  const result = useSelector((state) => state.quizReducer.result);
   const [currentPage, setCurrentPage] = useState(1);
   const [quizPerPage, setquizPerPage] = useState(1);
   const [selectedOption, setSelectedOption] = useState("");
-  const [answerSelect, setAnswerSelect] = useState([]);
-  let result = 0;
 
+  //Ques Calc
   const lastQuizIndex = currentPage * quizPerPage;
   const firstQuizIndex = lastQuizIndex - quizPerPage;
   const currentQuizData = quizes.slice(firstQuizIndex, lastQuizIndex);
 
+  //Handler
   const handleNext = () => {
     if (currentPage < quizes.length) {
       setCurrentPage(currentPage + 1);
@@ -25,28 +28,24 @@ const QuizView = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  const dispatch = useDispatch();
+  //Get ans
   const answerHandler = (item) => {
-    answerSelect.push(item);
-    console.log(answerSelect);
+    dispatch(getSelectedAns(item));
   };
-
+  //Check ans
   const resultCheck = () => {
-    for (var i = 0; i < answerData.length; i++) {
-      if (answerData[i] == answerSelect[i]) {
-        result = result + 1;
-      }
-    }
-    console.log(result)
+    dispatch(getResult());
   };
-
   return (
     <div className="quiz-main">
       <div className="container">
         <div className="row">
-          <div className="col-md-4 col-sm-12">
+          <div className="col-md-6 col-sm-12">
             <img className="w-100" src={quizImg} alt="" />
           </div>
-          <div className="col-md-8 col-sm-12">
+          <div className="col-md-6 col-sm-12">
             <div className="count-ques">
               <div className="n-of-ques">
                 <h2>
@@ -93,7 +92,7 @@ const QuizView = () => {
                     <div className="submit">
                       {currentPage === quizes.length && (
                         <button
-                          onClick={() => resultCheck()}
+                          onClick={resultCheck}
                           className="common-btn"
                           data-toggle="modal"
                           data-target="#exampleModalCenter"
@@ -108,6 +107,7 @@ const QuizView = () => {
           </div>
         </div>
       </div>
+      <Result result={result} quizes={quizes} />
     </div>
   );
 };

@@ -20,18 +20,21 @@ const quizState = {
         },
         {
             "id":4,
-            "ques": "var x = 3 + 4 + '7'",
-            "options" : ['14','"77"','"347"', '77']
+            "ques": "Which built-in method returns the length of the string?",
+            "options" : ['length','size',' index', 'None of the above']
         },
+      
         {
             "id":5,
             "ques": "To add an element to the end of an array you use:",
-            "options" : ['pop()','add()','push()', 'shift()']
+            "options" : ['pop()','add()','push()','shift()']
         }
     
     ],
-    answer : ["Both A and B","script","undefined","'77'","push()"],
-    quizAnswer : []
+    answer : ["Both A and B","script","undefined","length","push()"],
+    selectedAnswer:[],
+    result:[]
+
 
 }
 
@@ -42,12 +45,18 @@ const quizSlice = createSlice({
     initialState:quizState,
     reducers:{
         getQuizData:(state)=> state,
+        getSelectedAns:(state,action)=>{
+            state.selectedAnswer.push(action.payload);
+        },
+        getResult : (state)=>{
+           state.result = state.answer.filter(element => state.selectedAnswer.includes(element));
+        }
     }
 
 })
 
 
 
-export const {getQuizData,getQuizAns} = quizSlice.actions
+export const {getQuizData,getSelectedAns,getResult} = quizSlice.actions
 
 export default quizSlice.reducer
