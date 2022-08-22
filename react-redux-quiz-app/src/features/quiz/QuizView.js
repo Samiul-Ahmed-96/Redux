@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 import quizImg from "../../image/ques.svg";
 import Result from "../../pages/Result/Result";
 import { getResult, getSelectedAns } from "./quizSlice";
@@ -30,7 +31,7 @@ const QuizView = () => {
   };
 
   const dispatch = useDispatch();
-  //Get ans
+  //Set ans
   const answerHandler = (item) => {
     dispatch(getSelectedAns(item));
   };
@@ -39,10 +40,11 @@ const QuizView = () => {
     dispatch(getResult());
   };
   return (
-    <div className="quiz-main">
+    <div className="">
       <div className="container">
-        <div className="row">
+        <div className="row quiz-main">
           <div className="col-md-6 col-sm-12">
+          <Link className="back-to-home" to='/'>Back To Home</Link>
             <img className="w-100" src={quizImg} alt="" />
           </div>
           <div className="col-md-6 col-sm-12">
@@ -106,8 +108,10 @@ const QuizView = () => {
               ))}
           </div>
         </div>
+        
       </div>
       <Result result={result} quizes={quizes} />
+      
     </div>
   );
 };

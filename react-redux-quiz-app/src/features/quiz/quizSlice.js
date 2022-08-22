@@ -38,8 +38,6 @@ const quizState = {
 
 }
 
-
-
 const quizSlice = createSlice({
     name:'quiz',
     initialState:quizState,
@@ -50,13 +48,20 @@ const quizSlice = createSlice({
         },
         getResult : (state)=>{
            state.result = state.answer.filter(element => state.selectedAnswer.includes(element));
+        },
+        addQues : (state,action) =>{
+            const newQues = action.payload;
+            console.log(newQues)
+            state.quizData.push(newQues);
+        },
+        addAns:(state,action)=>{
+            state.answer.push(action.payload);
         }
+       
     }
 
 })
 
-
-
-export const {getQuizData,getSelectedAns,getResult} = quizSlice.actions
+export const {getQuizData,getSelectedAns,getResult,addQues,addAns} = quizSlice.actions
 
 export default quizSlice.reducer
