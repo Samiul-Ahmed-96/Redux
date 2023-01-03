@@ -19,7 +19,7 @@ const AddQuiz = () => {
     const newQuiz = {
       id: quizes.length + 1,
       ques: ques,
-      optios: [optionOne, optionTwo, optionThree, optionFour],
+      options: [optionOne, optionTwo, optionThree, optionFour],
     };
 
     dispatch(addQues(newQuiz));

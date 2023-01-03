@@ -81,6 +81,7 @@ body {
   cursor: pointer;
 
 }
+
 .n-of-ques {
   text-align: unset;
   height: 80px;
@@ -100,10 +101,12 @@ body {
   font-size: 20px;
   margin: 0;
 }
+
 .count-ques {
   display: flex;
   justify-content: end;
 }
+
 .modal-body img {
   width: 100%;
 }
@@ -113,13 +116,16 @@ body {
   padding: 30px;
   border: none;
 }
+
 .modal-content {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.modal-body h3{
+
+.modal-body h3 {
   margin-top: 20px;
 }
+
 .back-to-home {
   text-decoration: none;
   background: aliceblue;
@@ -128,9 +134,11 @@ body {
   color: #6c63ff;
   font-weight: 500;
 }
-.add-page{
+
+.add-page {
   height: 100vh;
 }
+
 .add-quiz-form input {
   width: 100%;
   background: #e4e4e4;
@@ -139,10 +147,51 @@ body {
   padding: 10px;
   border-radius: 10px;
 }
+
 input.add-quiz-btn {
   width: 150px;
   margin: 0px auto;
   background: #6c63ff;
   color: #fff;
   font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header li {
+  list-style: none;
+  margin: 0px 20px;
+}
+
+.header li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-main {
+  background: #2f2e41;
+  padding: 15px 0px;
+}
+
+@media screen and (max-width: 1024px) {
+  .options {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .quiz-main {
+    margin-top: 20px;
+  }
+  .count-ques {
+    display: flex;
+    justify-content: start;
+}
 }
